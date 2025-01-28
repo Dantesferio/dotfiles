@@ -104,6 +104,7 @@ keys = [
     Key([mod, "shift"], "f", lazy.spawn("firefox"), desc="firefox web browser"),
     Key([mod, "shift"], "a", lazy.spawn("audacious"), desc="audacious music player"),
     Key([mod, "shift"], "s", lazy.spawn("xfce4-screenshooter --region"), desc="launch a region screenshoot"),
+    Key([mod, "shift"], "h", lazy.spawn("alacritty -e sudo /home/rebin/hid"), desc="hiddift VPN"),
     
     # opening the config file
     Key([mod, "shift"], "c", lazy.spawn("code /home/rebin/.config/qtile/config.py"), desc="open the config file in nvim"),
