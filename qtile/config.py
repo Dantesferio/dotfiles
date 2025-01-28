@@ -9,6 +9,7 @@ color = {
     "one dark": {
         "black"        : "#0C0E14",
         "white"        : "#ABB2BF",
+        "orange"       : "#ed955a",
         "light-red"    : "#E06C75",
         "dark-red"     : "#b83e48",
         "green"        : "#98C379",
@@ -24,6 +25,7 @@ color = {
     "tokyo_night": {
         "black"        : "#1f2335",
         "white"        : "#ABB2BF",
+        "orange"       : "#ff7519",
         "light-red"    : "#ff757f",
         "dark-red"     : "#c53b53",
         "green"        : "#c3e88d",
@@ -119,7 +121,24 @@ keys = [
         lazy.run_extension(extension.CommandSet(
                 commands={
                 "shutdown": "poweroff",
-                "reboot": "reboot"
+                "reboot": "reboot",
+                "sleep": "systemctl suspend",
+                "log-out": "qtile cmd-obj -o cmd -f shutdown"
+                },
+                font = "Ubuntu Bold", 
+                fontsize=12,
+                foreground="#ffffff",
+                selected_background=color[cs]["purple"]
+            )
+        )
+    ),
+
+    Key([mod, "control"], "p", 
+        lazy.run_extension(extension.CommandSet(
+                commands={
+                    "Balanced": "powerprofilesctl set balanced",
+                    "power-saver": "powerprofilesctl set power-saver",
+                    "performance": "powerprofilesctl set performance",
                 },
                 font = "Ubuntu Bold", 
                 fontsize=12,
@@ -317,6 +336,22 @@ screens = [
                     format="BRT: {percent:2.0%}",
                     step=5
                 ),
+
+                widget.Sep(
+                    background=color[cs]["black"],
+                    foreground=color[cs]["gutter-gray"]
+                ),
+
+                widget.GenPollCommand(
+                    shell=True,
+                    cmd="powerprofilesctl get",
+                    fmt="Power: {}",
+                    update_interval=5,
+                    font = "Ubuntu Bold", 
+                    fontsize=defalut_font_size,
+                    background=color[cs]["black"],
+                    foreground=color[cs]["orange"],
+                ),
                 
                 widget.Sep(
                     background=color[cs]["black"],
@@ -340,7 +375,8 @@ screens = [
                 ),
 
                 widget.Memory(
-                    format="MEM: {MemUsed:.0f}{mm}", 
+                    format="MEM: {MemUsed: .2f} {mm}", 
+                    measure_mem='G',
                     font = "Ubuntu Bold", 
                     fontsize=defalut_font_size,
                     background=color[cs]["black"],
