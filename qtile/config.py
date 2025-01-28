@@ -249,10 +249,93 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Image(
-                    filename="/home/rebin-sama/.config/qtile/icons/arch.png", 
+                # ------------------------------ left ------------------------------
+                widget.CurrentLayoutIcon(
+                    font = "Ubuntu Bold", 
+                    fontsize=defalut_font_size,
+                    background=color[cs]["black"]
+                ),
+
+                widget.Sep(
                     background=color[cs]["black"],
-                    # mouse_callbacks = {"Button1": lambda: lazy.spawn("rofi -show drun")}
+                    foreground=color[cs]["gutter-gray"]
+                ),
+
+                widget.CPU(
+                    format="CPU: {load_percent}%",
+                    font = "Ubuntu Bold", 
+                    fontsize=defalut_font_size,
+                    background=color[cs]["black"],
+                    foreground=color[cs]["purple"],
+                ),
+
+                widget.Sep(
+                    background=color[cs]["black"],
+                    foreground=color[cs]["gutter-gray"]
+                ),
+
+               
+                widget.ThermalSensor(
+                    font = "Ubuntu Bold", 
+                    fontsize=defalut_font_size,
+                    background=color[cs]["black"],
+                    foreground=color[cs]["magenta"],
+                    foreground_alert=color[cs]["light-red"],
+                    tag_sensor="Package id 0",
+                    fmt="TEMP: {}"
+                ),
+
+                widget.Sep(
+                    background=color[cs]["black"],
+                    foreground=color[cs]["gutter-gray"]
+                ),
+
+                widget.Memory(
+                    format="MEM: {MemUsed: .2f} {mm}", 
+                    measure_mem='G',
+                    font = "Ubuntu Bold", 
+                    fontsize=defalut_font_size,
+                    background=color[cs]["black"],
+                    foreground=color[cs]["blue"]
+                ),
+
+                widget.Sep(
+                    background=color[cs]["black"],
+                    foreground=color[cs]["gutter-gray"]
+                ),
+
+                widget.Battery(
+                    font = "Ubuntu Bold", 
+                    fontsize=defalut_font_size,
+                    background=color[cs]["black"],
+                    foreground=color[cs]["cyan"],
+                    format="Battery: {char} {percent:2.0%}"
+                ),
+
+                widget.Sep(
+                    background=color[cs]["black"],
+                    foreground=color[cs]["gutter-gray"]
+                ),
+
+                widget.Backlight(
+                    font = "Ubuntu Bold", 
+                    fontsize=defalut_font_size,
+                    background=color[cs]["black"],
+                    foreground=color[cs]["green"],
+                    backlight_name="intel_backlight",
+                    format="BRT: {percent:2.0%}",
+                    step=5
+                ),
+
+                widget.Sep(
+                    background=color[cs]["black"],
+                    foreground=color[cs]["gutter-gray"]
+                ),
+                # ------------------------------ center ------------------------------
+
+
+                widget.Spacer(
+                    background=color[cs]["black"]
                 ),
 
                 widget.Sep(
@@ -266,7 +349,7 @@ screens = [
                     disable_drag=True,
                     background=color[cs]["black"],
                     inactive=color[cs]["gutter-gray"],
-                    block_highlight_text_color=color[cs]["light-red"],
+                    block_highlight_text_color=color[cs]["purple"],
                     border_width=0,
                     highlight_method="line",
                     highlight_color=color[cs]["black"],
@@ -277,67 +360,12 @@ screens = [
                     background=color[cs]["black"],
                     foreground=color[cs]["gutter-gray"]
                 ),
-                
-                widget.CurrentLayout(
-                    font = "Ubuntu Bold", 
-                    fontsize=defalut_font_size,
-                    background=color[cs]["black"]
-                ),
-
-                widget.Sep(
-                    background=color[cs]["black"],
-                    foreground=color[cs]["gutter-gray"]
-                ),
-
-                widget.WindowName(
-                    font = "Ubuntu Bold", 
-                    fontsize=defalut_font_size,
-                    background=color[cs]["black"],
-
-                ),
 
                 widget.Spacer(
                     background=color[cs]["black"]
                 ),
 
-
-                widget.Sep(
-                    background=color[cs]["black"],
-                    foreground=color[cs]["gutter-gray"]
-                ),
-
-                widget.Systray(
-                    background=color[cs]["black"]
-                ),
-
-                widget.Sep(
-                    background=color[cs]["black"],
-                    foreground=color[cs]["gutter-gray"]
-                ),
-
-                widget.Battery(
-                    font = "Ubuntu Bold", 
-                    fontsize=defalut_font_size,
-                    background=color[cs]["black"],
-                    foreground=color[cs]["dark-red"],
-                    format="Battery: {char} {percent:2.0%}"
-                ),
-
-                widget.Sep(
-                    background=color[cs]["black"],
-                    foreground=color[cs]["gutter-gray"]
-                ),
-
-                widget.Backlight(
-                    font = "Ubuntu Bold", 
-                    fontsize=defalut_font_size,
-                    background=color[cs]["black"],
-                    foreground=color[cs]["light-red"],
-                    backlight_name="intel_backlight",
-                    format="BRT: {percent:2.0%}",
-                    step=5
-                ),
-
+                # ------------------------------ right ------------------------------
                 widget.Sep(
                     background=color[cs]["black"],
                     foreground=color[cs]["gutter-gray"]
@@ -351,7 +379,7 @@ screens = [
                     font = "Ubuntu Bold", 
                     fontsize=defalut_font_size,
                     background=color[cs]["black"],
-                    foreground=color[cs]["orange"],
+                    foreground=color[cs]["green"],
                 ),
                 
                 widget.Sep(
@@ -367,48 +395,6 @@ screens = [
                     font = "Ubuntu Bold", 
                     fontsize=defalut_font_size,
                     background=color[cs]["black"],
-                    foreground=color[cs]["dark-yellow"],
-                ),
-
-                widget.Sep(
-                    background=color[cs]["black"],
-                    foreground=color[cs]["gutter-gray"]
-                ),
-
-                widget.Memory(
-                    format="MEM: {MemUsed: .2f} {mm}", 
-                    measure_mem='G',
-                    font = "Ubuntu Bold", 
-                    fontsize=defalut_font_size,
-                    background=color[cs]["black"],
-                    foreground=color[cs]["light-yellow"]
-                ),
-
-                widget.Sep(
-                    background=color[cs]["black"],
-                    foreground=color[cs]["gutter-gray"]
-                ),
-
-                widget.ThermalSensor(
-                    font = "Ubuntu Bold", 
-                    fontsize=defalut_font_size,
-                    background=color[cs]["black"],
-                    foreground=color[cs]["green"],
-                    foreground_alert=color[cs]["light-red"],
-                    tag_sensor="Package id 0",
-                    fmt="TEMP: {}"
-                ),
-
-                widget.Sep(
-                    background=color[cs]["black"],
-                    foreground=color[cs]["gutter-gray"]
-                ),
-
-                widget.CPU(
-                    format="CPU: {load_percent}%",
-                    font = "Ubuntu Bold", 
-                    fontsize=defalut_font_size,
-                    background=color[cs]["black"],
                     foreground=color[cs]["cyan"],
                 ),
 
@@ -416,6 +402,7 @@ screens = [
                     background=color[cs]["black"],
                     foreground=color[cs]["gutter-gray"]
                 ),
+
 
                 widget.Volume(
                     fmt="VOL: {}",
@@ -453,6 +440,14 @@ screens = [
                     fontsize=defalut_font_size,
                     background=color[cs]["black"],
                     foreground=color[cs]["purple"]
+                ),
+                widget.Sep(
+                    background=color[cs]["black"],
+                    foreground=color[cs]["gutter-gray"]
+                ),
+
+                widget.Systray(
+                    background=color[cs]["black"]
                 ),
 
             ],
