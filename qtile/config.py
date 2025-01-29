@@ -126,9 +126,9 @@ keys = [
                 "sleep": "systemctl suspend",
                 "log-out": "qtile cmd-obj -o cmd -f shutdown"
                 },
-                font = "Ubuntu Bold", 
-                fontsize=12,
-                foreground="#ffffff",
+                foreground="#ffffff",                
+                dmenu_font="Ubuntu Bold",
+                fontsize=defalut_font_size,
                 selected_background=color[cs]["purple"]
             )
         )
@@ -141,9 +141,9 @@ keys = [
                     "power-saver": "powerprofilesctl set power-saver",
                     "performance": "powerprofilesctl set performance",
                 },
-                font = "Ubuntu Bold", 
-                fontsize=12,
-                foreground="#ffffff",
+                foreground="#ffffff",                
+                dmenu_font="Ubuntu Bold",
+                fontsize=defalut_font_size,
                 selected_background=color[cs]["purple"]
             )
         )
