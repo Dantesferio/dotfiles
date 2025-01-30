@@ -45,7 +45,7 @@ color = {
 mod = "mod4"
 terminal = "alacritty"
 cs = "one dark" # color scheme
-group_list = "一 二 三 四 五 六 七".split(" ")
+group_list = "一 二 三 四 五 六 七 八 九".split(" ")
 defalut_font_size = 14
 defalut_icon_size = 27
 defalut_bar_size = 27
@@ -105,7 +105,7 @@ keys = [
     Key([mod, "shift"], "a", lazy.spawn("audacious"), desc="audacious music player"),
     Key([mod, "shift"], "s", lazy.spawn("xfce4-screenshooter --region"), desc="launch a region screenshoot"),
     Key([mod, "shift"], "h", lazy.spawn("alacritty -e sudo /home/rebin/hid"), desc="hiddift VPN"),
-    
+    Key([mod, "control"], "c", lazy.spawn("rofi -show calc"), desc="rofi as calculator"),
     # opening the config file
     Key([mod, "shift"], "c", lazy.spawn("code /home/rebin/.config/qtile/config.py"), desc="open the config file in nvim"),
 
