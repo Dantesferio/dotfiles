@@ -102,6 +102,7 @@ keys = [
     Key([mod, "shift"], "n", lazy.spawn(f"{terminal} -e nvim"), desc="nvim editor"),
     Key([mod, "shift"], "e", lazy.spawn("thunar"), desc="thunar file manager"),
     Key([mod, "shift"], "f", lazy.spawn("firefox"), desc="firefox web browser"),
+    Key([mod, "shift"], "d", lazy.spawn("firefox open.spotify.com"), desc="spotify web"),
     Key([mod, "shift"], "a", lazy.spawn("audacious"), desc="audacious music player"),
     Key([mod, "shift"], "s", lazy.spawn("xfce4-screenshooter --region"), desc="launch a region screenshoot"),
     Key([mod, "shift"], "h", lazy.spawn("alacritty -e sudo /home/rebin/hid"), desc="hiddift VPN"),
@@ -190,7 +191,7 @@ for i in groups:
 layouts = [
     layout.MonadTall(
         border_width=2,
-        margin=5,
+        margin=8,
         border_focus=focused_border_color,
         border_normal=unfocused_border_color
     ),
@@ -199,7 +200,7 @@ layouts = [
     
     layout.Columns(
         border_width=2,
-        margin=5,
+        margin=8,
         border_focus=focused_border_color,
         border_normal=unfocused_border_color
     ),
@@ -210,7 +211,7 @@ layouts = [
     
     layout.Matrix(
         border_width=2,
-        margin=5,
+        margin=8,
         border_focus=focused_border_color,
         border_normal=unfocused_border_color
     ),
@@ -224,7 +225,7 @@ layouts = [
     
     layout.RatioTile(
         border_width=2,
-        margin=5,
+        margin=8,
         border_focus=focused_border_color,
         border_normal=unfocused_border_color
     ),
@@ -235,7 +236,7 @@ layouts = [
     
     layout.VerticalTile(
         border_width=2,
-        margin=5,
+        margin=8,
         border_focus=focused_border_color,
         border_normal=unfocused_border_color
     ),
@@ -480,6 +481,7 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
+        Match(wm_class="krunner"),
     ],
     border_focus=color[cs]["purple"],
     border_normal=color[cs]["blue"],
